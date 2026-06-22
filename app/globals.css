@@ -1,0 +1,301 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: #f8f9fa;
+  color: #111;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 20px 24px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.logo {
+  width: 38px; height: 38px;
+  background: #1B3A5C;
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 800; font-size: 14px;
+}
+
+.header h1 { font-size: 20px; font-weight: 700; }
+.header p { font-size: 12px; color: #888; }
+
+.tabs {
+  display: flex;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #d1d5db;
+  margin-bottom: 20px;
+}
+
+.tab {
+  flex: 1;
+  padding: 10px 0;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all .15s;
+}
+
+.tab.active { background: #1B3A5C; color: #fff; }
+.tab:not(.active) { background: #fff; color: #666; }
+
+.search-wrap {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 14px 16px 14px 44px;
+  border: 2px solid #d1d5db;
+  border-radius: 10px;
+  font-size: 15px;
+  font-family: inherit;
+  outline: none;
+  transition: border-color .15s;
+}
+
+.search-input:focus { border-color: #1B3A5C; }
+
+.search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #999;
+  font-size: 18px;
+}
+
+.dropdown {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0; right: 0;
+  background: #fff;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  max-height: 320px;
+  overflow-y: auto;
+  box-shadow: 0 8px 24px rgba(0,0,0,.1);
+  z-index: 100;
+}
+
+.dropdown-item {
+  padding: 10px 14px;
+  cursor: pointer;
+  border-bottom: 1px solid #f5f5f5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  transition: background .1s;
+}
+
+.dropdown-item:hover { background: #f0f7ff; }
+.dropdown-item:last-child { border-bottom: none; }
+
+.sku-text { font-family: monospace; font-weight: 700; font-size: 13px; }
+.product-text { color: #666; margin-left: 8px; }
+.upc-badge { font-size: 11px; font-family: monospace; padding: 2px 8px; border-radius: 4px; }
+.upc-badge.has { background: #ecfdf5; color: #059669; }
+.upc-badge.missing { background: #fef2f2; color: #dc2626; }
+
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+
+.field label {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  color: #888;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  letter-spacing: .3px;
+}
+
+.field input, .field select {
+  width: 100%;
+  padding: 9px 11px;
+  border: 1px solid #d1d5db;
+  border-radius: 7px;
+  font-size: 13px;
+  font-family: inherit;
+  outline: none;
+  background: #fff;
+}
+
+.field input:focus, .field select:focus { border-color: #1B3A5C; }
+
+.field-row { display: grid; gap: 8px; }
+.field-row-2 { grid-template-columns: 1fr 1fr; }
+.field-row-2-1 { grid-template-columns: 2fr 1fr; }
+
+.fields-stack { display: flex; flex-direction: column; gap: 10px; }
+
+.upc-field input {
+  font-family: monospace;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.btn {
+  padding: 10px 22px;
+  background: #1B3A5C;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background .15s;
+}
+
+.btn:hover { background: #142d4a; }
+
+.btn-outline {
+  padding: 10px 22px;
+  background: #fff;
+  color: #1B3A5C;
+  border: 1px solid #1B3A5C;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.btn-row {
+  display: flex;
+  align-items: end;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.preview-box {
+  background: #f0f0f0;
+  padding: 16px;
+  border-radius: 10px;
+  display: inline-block;
+}
+
+.section-label {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #444;
+}
+
+.size-select {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.size-select label { font-size: 12px; font-weight: 600; color: #888; }
+.size-select select {
+  padding: 6px 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 12px;
+  font-family: inherit;
+  background: #fff;
+}
+
+.info-bar {
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  margin-bottom: 16px;
+}
+
+.info-bar.success { background: #ecfdf5; border: 1px solid #a7f3d0; }
+.info-bar.warn { background: #fef2f2; border: 1px solid #fecaca; color: #991b1b; }
+
+.bulk-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.bulk-table thead { background: #f9fafb; position: sticky; top: 0; }
+.bulk-table th { padding: 7px 8px; text-align: left; font-weight: 600; color: #666; }
+.bulk-table td { padding: 5px 8px; border-top: 1px solid #f0f0f0; }
+.bulk-table tr.selected { background: #f0f7ff; }
+
+.table-wrap {
+  max-height: 300px;
+  overflow-y: auto;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.bulk-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.csv-reqs {
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 18px;
+  background: #fff;
+  margin-bottom: 18px;
+}
+
+.csv-reqs h3 { font-size: 14px; font-weight: 600; margin-bottom: 10px; }
+
+.csv-reqs pre {
+  background: #f5f5f5;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 10.5px;
+  font-family: monospace;
+  overflow-x: auto;
+  line-height: 1.5;
+}
+
+.print-tip {
+  margin-top: 24px;
+  padding: 12px 16px;
+  background: #fff;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  font-size: 12px;
+  color: #666;
+}
+
+.print-tip strong { color: #111; }
+
+.upload-zone {
+  border: 2px dashed #ccc;
+  border-radius: 12px;
+  padding: 40px;
+  text-align: center;
+  background: #fff;
+}
+
+.upload-zone h3 { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
+.upload-zone p { font-size: 12px; color: #888; margin-bottom: 14px; }
+
+@media print {
+  body { background: #fff; }
+}
